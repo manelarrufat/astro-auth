@@ -8,16 +8,17 @@ if ( !isLoggedIn || !user ) {
   return Astro.redirect("/login");
 }
 
-const { email, name, avatar, emailVerified } = user;
+const { email, name, avatar } = user;
 
-// const firebaseUser = firebase.auth.currentUser;
+const firebaseUser = firebase.auth.currentUser;
 // // console.log(firebaseUser);
 
 // if (firebaseUser === null) {
 //   return Astro.redirect("/login");
 // }
 
-// await firebaseUser?.reload();
+await firebaseUser?.reload();
+const { emailVerified } = firebaseUser!; 
 
 // const { displayName, email, emailVerified, photoURL } = firebaseUser;
 
